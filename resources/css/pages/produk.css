@@ -1,0 +1,88 @@
+/* ==========================================================================
+   PRODUK PAGE SPECIFIC CSS
+   ========================================================================== */
+
+/* Hero Section khusus halaman produk */
+.produk-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: linear-gradient(112deg, #f8fbff 0%, #f0f6ff 48%, #e8f2ff 100%);
+  padding: 72px 0 60px;
+}
+
+.produk-hero-container {
+  position: relative;
+  z-index: 2;
+}
+
+.produk-hero-title {
+  font-size: clamp(36px, 4.5vw, 54px);
+  line-height: 1.1;
+  letter-spacing: -0.055em;
+  font-weight: 800;
+  color: #10233f;
+  margin: 15px 0 15px;
+}
+
+.produk-hero-title span {
+  color: var(--blue);
+}
+
+.produk-hero-desc {
+  max-width: 520px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #60718a;
+  margin: 0;
+}
+
+/* Glow effects for hero */
+.produk-glow {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.produk-glow-one {
+  width: 400px;
+  height: 400px;
+  right: 5%;
+  top: -120px;
+  background: radial-gradient(circle, rgba(95, 169, 255, 0.22), rgba(95, 169, 255, 0) 70%);
+}
+
+.produk-glow-two {
+  width: 450px;
+  height: 450px;
+  left: 10%;
+  bottom: -250px;
+  background: radial-gradient(circle, rgba(51, 130, 246, 0.12), rgba(51, 130, 246, 0) 70%);
+}
+
+/* List Section */
+.produk-list-section {
+  padding: 64px 0 96px;
+  background: #f7faff;
+  border-bottom: 1px solid #edf3fb;
+}
+
+/* Pagination container */
+.pagination-container {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .produk-hero {
+    padding: 50px 0 40px;
+  }
+  
+  .produk-list-section {
+    padding: 48px 0 72px;
+  }
+}

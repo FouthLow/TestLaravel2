@@ -4,11 +4,15 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HomeController;    
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/artikel', [HomeController::class, 'artikel']);
+Route::get('/galeri', [HomeController::class, 'galeri']);
+Route::get('/produk', [HomeController::class, 'product']);
+Route::get('/contact', [HomeController::class, 'contact']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -12,7 +12,7 @@ class StoreGaleriRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,7 +23,9 @@ class StoreGaleriRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'image' => 'nullable|image|mimes:png,jpg|max:10000',
+            'judul' => 'require|string|max:255',
+            'deskripsi' => 'nullable|string|max:255',
         ];
     }
 }

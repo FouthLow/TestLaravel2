@@ -1,0 +1,218 @@
+/* ==========================================================================
+   CONTACT PAGE SPECIFIC CSS
+   ========================================================================== */
+
+/* Hero Section khusus halaman kontak */
+.contact-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: linear-gradient(112deg, #f8fbff 0%, #f0f6ff 48%, #e8f2ff 100%);
+  padding: 72px 0 60px;
+}
+
+.contact-hero-container {
+  position: relative;
+  z-index: 2;
+}
+
+.contact-hero-title {
+  font-size: clamp(36px, 4.5vw, 54px);
+  line-height: 1.1;
+  letter-spacing: -0.055em;
+  font-weight: 800;
+  color: #10233f;
+  margin: 15px 0 15px;
+}
+
+.contact-hero-title span {
+  color: var(--blue);
+}
+
+.contact-hero-desc {
+  max-width: 520px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #60718a;
+  margin: 0;
+}
+
+/* Glow effects for hero */
+.contact-hero-glow {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.contact-glow-one {
+  width: 400px;
+  height: 400px;
+  right: 5%;
+  top: -120px;
+  background: radial-gradient(circle, rgba(95, 169, 255, 0.22), rgba(95, 169, 255, 0) 70%);
+}
+
+.contact-glow-two {
+  width: 450px;
+  height: 450px;
+  left: 10%;
+  bottom: -250px;
+  background: radial-gradient(circle, rgba(51, 130, 246, 0.12), rgba(51, 130, 246, 0) 70%);
+}
+
+/* Main Section Layout */
+.contact-main-section {
+  padding: 64px 0 96px;
+  background: #fff;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.contact-section-title {
+  margin: 10px 0 14px;
+  color: #10233f;
+  font-size: clamp(24px, 2.5vw, 32px);
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+}
+
+.contact-desc {
+  margin: 0 0 24px;
+  color: #687991;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* Info Card & Details */
+.contact-info-card,
+.contact-form-card {
+  background: #f8fbff;
+  border: 1px solid #e5edf7;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(20, 67, 132, 0.03);
+}
+
+.contact-details-list {
+  display: grid;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.contact-detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.contact-icon-wrap {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  background: #eaf3ff;
+  color: var(--blue);
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.contact-detail-item strong {
+  display: block;
+  font-size: 13px;
+  color: #1a3453;
+}
+
+.contact-detail-item p {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #72829a;
+  line-height: 1.6;
+}
+
+.contact-map-wrap {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #dbe6f5;
+  margin-top: 10px;
+}
+
+/* Form Styling */
+.contact-form {
+  display: grid;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 750;
+  color: #203955;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: #fff;
+  border: 1px solid #d5e3f5;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--ink);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px rgba(23, 104, 232, 0.1);
+}
+
+.alert-success {
+  padding: 12px 16px;
+  background: #e6f9f0;
+  border: 1px solid #a3e6cb;
+  color: #0f6c3e;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-hero {
+    padding: 50px 0 40px;
+  }
+  
+  .contact-main-section {
+    padding: 48px 0 72px;
+  }
+
+  .contact-info-card,
+  .contact-form-card {
+    padding: 20px;
+  }
+}
