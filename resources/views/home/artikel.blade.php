@@ -31,18 +31,24 @@
                 <div class="article-grid">
                     @forelse($artikels as $artikel)
                         <article class="article-card">
-                            <a href="{{ route('artikels.show', $artikel->id) }}" class="article-card-img-wrap" aria-label="Baca {{ $artikel->title }}">
+                            <!-- Menghubungkan ke rute show publik /artikel/{id} -->
+                            <a href="{{ url('/artikel/' . $artikel->id) }}" class="article-card-img-wrap" aria-label="Baca {{ $artikel->judul }}">
                                 @if($artikel->image)
-                                    <img src="{{ asset('storage/' . $artikel->image) }}" alt="{{ $artikel->title }}" class="article-card-img" loading="lazy">
+                                    <img src="{{ asset('storage/' . $artikel->image) }}" alt="{{ $artikel->judul }}" class="article-card-img" loading="lazy">
                                 @else
                                     <div class="article-card-no-img"><span class="placeholder-symbol">SKA</span><span>Informasi Perusahaan</span></div>
                                 @endif
                             </a>
                             <div class="article-card-body">
                                 <span class="article-card-date">{{ $artikel->created_at?->format('d M Y') ?? 'Update Terbaru' }}</span>
-                                <h3 class="article-card-title"><a href="{{ route('artikels.show', $artikel->id) }}">{{ $artikel->title }}</a></h3>
-                                <p class="article-card-desc">{{ Str::limit($artikel->content, 110) }}</p>
-                                <div class="article-card-footer"><a href="{{ route('artikels.show', $artikel->id) }}" class="article-read-more">Baca artikel <span aria-hidden="true">→</span></a></div>
+                                <h3 class="article-card-title">
+                                    <a href="{{ url('/artikel/' . $artikel->id) }}">{{ $artikel->judul }}</a>
+                                </h3>
+                                <!-- Menggunakan kolom deskripsi -->
+                                <p class="article-card-desc">{{ Str::limit($artikel->deskripsi, 110) }}</p>
+                                <div class="article-card-footer">
+                                    <a href="{{ url('/artikel/' . $artikel->id) }}" class="article-read-more">Baca artikel <span aria-hidden="true">→</span></a>
+                                </div>
                             </div>
                         </article>
                     @empty

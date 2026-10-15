@@ -1,0 +1,250 @@
+/* ==========================================================================
+   ADMIN PANEL SPECIFIC CSS
+   ========================================================================== */
+
+.admin-body {
+  background: #f4f8ff;
+  overflow-x: hidden;
+}
+
+.admin-header {
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid #e2edf8;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.admin-header-container {
+  width: 100% !important;
+  padding: 0 28px;
+  min-height: 72px;
+}
+
+.admin-header-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.admin-user-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #203955;
+}
+
+.btn-logout {
+  background: #f0f5ff;
+  border: 1px solid #d5e3f5;
+  color: #1768e8;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 750;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-logout:hover {
+  background: #1768e8;
+  color: #fff;
+  border-color: #1768e8;
+}
+
+/* Layout Wrapper */
+.admin-wrapper {
+  display: flex;
+  min-height: calc(100vh - 72px);
+  align-items: flex-start;
+}
+
+/* Sidebar Statis / Tetap (Sticky) */
+.admin-sidebar {
+  width: 260px;
+  background: #fff;
+  border-right: 1px solid #e2edf8;
+  padding: 28px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex-shrink: 0;
+  
+  /* Kunci utama agar sidebar tetap diam di tempat saat di-scroll */
+  position: sticky;
+  top: 72px;
+  height: calc(100vh - 72px);
+  overflow-y: auto;
+}
+
+.sidebar-menu-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sidebar-label {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #93a4bc;
+  padding: 0 12px;
+  margin-bottom: 4px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #607490;
+  transition: all 0.2s;
+}
+
+.sidebar-link span {
+  font-size: 16px;
+}
+
+.sidebar-link:hover,
+.sidebar-link-active {
+  background: #edf4ff;
+  color: var(--blue);
+}
+
+/* Main Content */
+.admin-main {
+  flex: 1;
+  padding: 36px 40px;
+  min-width: 0;
+}
+
+.admin-content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.admin-page-header {
+  margin-bottom: 28px;
+}
+
+.admin-page-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  color: #10233f;
+  letter-spacing: -0.03em;
+}
+
+/* Card Box Style untuk Konten Dashboard */
+.admin-card {
+  background: #fff;
+  border: 1px solid #e5edf7;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 8px 30px rgba(20, 67, 132, 0.03);
+}
+
+/* ==========================================================================
+   PROFILE PAGE OVERRIDES FOR BREEZE
+   ========================================================================== */
+.profile-section-title {
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #edf2f8;
+}
+
+.profile-section-title h3 {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #10233f;
+}
+
+.profile-section-title p {
+  margin: 0;
+  font-size: 12px;
+  color: #687991;
+}
+
+/* Penyesuaian form input bawaan breeze agar senada */
+.admin-card form input[type="text"],
+.admin-card form input[type="email"],
+.admin-card form input[type="password"] {
+  width: 100%;
+  padding: 11px 14px;
+  background: #fff;
+  border: 1px solid #d5e3f5;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--ink);
+  margin-top: 6px;
+  margin-bottom: 14px;
+}
+
+.admin-card form input:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px rgba(23, 104, 232, 0.1);
+}
+
+.admin-card form label {
+  font-size: 12px;
+  font-weight: 750;
+  color: #203955;
+}
+
+/* Tombol simpan bawaan breeze */
+.admin-card form button[type="submit"],
+.admin-card form .inline-flex {
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 750;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.admin-card form button[type="submit"]:hover {
+  background: var(--blue-dark);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .admin-sidebar {
+    width: 220px;
+    padding: 20px 12px;
+  }
+  .admin-main {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 680px) {
+  .admin-wrapper {
+    flex-direction: column;
+  }
+  .admin-sidebar {
+    width: 100%;
+    position: relative;
+    top: 0;
+    height: auto;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 12px 16px;
+    gap: 16px;
+  }
+  .sidebar-menu-group {
+    flex-direction: row;
+    align-items: center;
+  }
+  .sidebar-label {
+    display: none;
+  }
+}

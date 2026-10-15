@@ -15,7 +15,7 @@ class ArtikelController extends Controller
      */
     public function index()
     {
-        return view('artikel.index', ['artikels' => Artikel::all()]);
+        return view('admin.artikel.index', ['artikels' => Artikel::all()]);
     }
 
     /**
@@ -23,7 +23,7 @@ class ArtikelController extends Controller
      */
     public function create()
     {
-        return view('artikel.create');
+        return view('admin.artikel.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class ArtikelController extends Controller
      */
     public function show(Artikel $artikel)
     {
-        return view('artikel.show', compact('artikel'));
+        return view('admin.artikel.show', compact('artikel'));
     }
 
     /**
@@ -54,7 +54,7 @@ class ArtikelController extends Controller
      */
     public function edit(Artikel $artikel)
     {
-        return view('artikel.edit', compact('artikel'));
+        return view('admin.artikel.edit', compact('artikel'));
     }
 
     /**

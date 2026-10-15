@@ -1,12 +1,26 @@
-/* 1. Ubah directive Tailwind menjadi syntax @import */
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* 2. Sekarang Anda bebas mengimpor file custom Anda di bawahnya tanpa error */
+/*Public css*/
 @import "./pages/home.css";
 @import "./pages/artikel.css";
 @import "./pages/produk.css";
 @import "./pages/galeri.css";
 @import "./pages/galeri.css";
 @import "./pages/contact.css";
+
+/*Public show css*/
+@import "./pages/show/artikel.css";
+@import "./pages/show/galeri.css";
+@import "./pages/show/produk.css";
+
+/*Admin css*/
+@import "./admin/auth/login.css";
+@import "./admin/admin.css";
+
+/*Admin Dashboard css*/
+@import "./admin/dashboard/produk.css";
+@import "./admin/dashboard/dashboard.css";
+@import "./admin/dashboard/galeri.css";
+@import "./admin/dashboard/artikel.css";

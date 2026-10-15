@@ -1,87 +1,96 @@
 /* ==========================================================================
-   ARTIKEL PAGE SPECIFIC CSS
+   ARTIKEL DETAIL PUBLIC CSS (FULLY SEPARATED)
    ========================================================================== */
 
-/* Hero Section khusus halaman artikel */
-.artikel-hero {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  background: linear-gradient(112deg, #f8fbff 0%, #f0f6ff 48%, #e8f2ff 100%);
-  padding: 72px 0 60px;
+.public-article-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 60px;
 }
 
-.artikel-hero-container {
-  position: relative;
-  z-index: 2;
+.public-article-back {
+  margin-bottom: 24px;
 }
 
-.artikel-hero-title {
-  font-size: clamp(36px, 4.5vw, 54px);
-  line-height: 1.1;
-  letter-spacing: -0.055em;
-  font-weight: 800;
-  color: #10233f;
-  margin: 15px 0 15px;
+.public-article-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--blue, #2563eb);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
 }
 
-.artikel-hero-title span {
-  color: var(--blue);
+.public-article-back-link:hover {
+  opacity: 0.8;
 }
 
-.artikel-hero-desc {
-  max-width: 520px;
-  font-size: 15px;
-  line-height: 1.8;
-  color: #60718a;
-  margin: 0;
+.public-article-header {
+  margin-bottom: 32px;
 }
 
-/* Glow effects for hero */
-.artikel-glow {
-  position: absolute;
-  z-index: -1;
-  border-radius: 50%;
-  filter: blur(2px);
-  pointer-events: none;
-}
-
-.artikel-glow-one {
-  width: 400px;
-  height: 400px;
-  right: 5%;
-  top: -120px;
-  background: radial-gradient(circle, rgba(95, 169, 255, 0.22), rgba(95, 169, 255, 0) 70%);
-}
-
-.artikel-glow-two {
-  width: 450px;
-  height: 450px;
-  left: 10%;
-  bottom: -250px;
-  background: radial-gradient(circle, rgba(51, 130, 246, 0.12), rgba(51, 130, 246, 0) 70%);
-}
-
-/* List Section */
-.artikel-list-section {
-  padding: 64px 0 96px;
-  background: #fff;
-}
-
-/* Pagination container if Laravel pagination links are used */
-.pagination-container {
-  margin-top: 48px;
+.public-article-meta {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #64748b;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .artikel-hero {
-    padding: 50px 0 40px;
-  }
-  
-  .artikel-list-section {
-    padding: 48px 0 72px;
-  }
+.public-article-badge {
+  background: #eef2ff;
+  color: #4f46e5;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+.public-article-title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.public-article-img-wrap {
+  margin-bottom: 36px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  background: #f1f5f9;
+}
+
+.public-article-img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+.public-article-content {
+  font-size: 16px;
+  color: #334155;
+  line-height: 1.8;
+  word-break: break-word;
+}
+
+.public-article-footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.public-article-author {
+  font-size: 13px;
+  color: #64748b;
 }

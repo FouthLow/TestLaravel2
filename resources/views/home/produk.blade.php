@@ -6,7 +6,8 @@
     <meta name="theme-color" content="#f8fbff">
     <meta name="description" content="Jelajahi berbagai produk, layanan internet, dan solusi infrastruktur jaringan terbaik dari PT Solusi Koneksi Anda untuk mendukung bisnis Anda.">
     <title>Produk & Layanan | PT Solusi Koneksi Anda</title>
-    @vite(['resources/css/app.css','resources/js/app.js'])
+    <!-- Memuat file CSS terpisah -->
+    @vite(['resources/css/app.css', 'resources/css/produk.css', 'resources/js/app.js'])
 </head>
 <body class="site-body">
 
@@ -30,19 +31,36 @@
             <div class="section-container">
                 <div class="services-grid">
                     @forelse($products as $product)
-                        <article class="service-card">
-                            <div class="service-card-top">
-                                <span class="service-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 9.5a13.1 13.1 0 0 1 18 0M6.5 13a8 8 0 0 1 11 0M10 16.5a3 3 0 0 1 4 0M12 20h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                                </span>
-                                <span class="service-number">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
+                        <article class="service-card produk-card">
+                            <div>
+                                <div class="produk-card-top">
+                                    @if($product->image)
+                                        <div class="produk-card-img-wrapper">
+                                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->nama }}" class="produk-card-img">
+                                        </div>
+                                    @else
+                                        <span class="service-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 9.5a13.1 13.1 0 0 1 18 0M6.5 13a8 8 0 0 1 11 0M10 16.5a3 3 0 0 1 4 0M12 20h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                                        </span>
+                                    @endif
+                                    <span class="service-number">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
+                                </div>
+                                
+                                <h3 class="produk-card-title">{{ $product->nama }}</h3>
+                                
+                                @if(isset($product->harga))
+                                    <div class="produk-card-price">
+                                        Rp {{ number_format($product->harga, 0, ',', '.') }}
+                                    </div>
+                                @endif
+
+                                <p class="produk-card-desc">{{ Str::limit($product->deskripsi, 110) }}</p>
                             </div>
-                            <h3>{{ $product->name ?? $product->title }}</h3>
-                            <p>{{ Str::limit($product->description ?? $product->content, 110) }}</p>
-                            <a href="#contact" class="service-arrow" aria-label="Pesan atau konsultasikan layanan ini">↗</a>
+
+                            <a href="{{ url('/contact') }}" class="service-arrow" aria-label="Pesan atau konsultasikan layanan ini">↗</a>
                         </article>
                     @empty
-                        <div class="article-empty" style="grid-column: 1/-1;">
+                        <div class="article-empty produk-empty-card">
                             <span class="empty-icon">✳</span>
                             <strong>Belum ada produk atau layanan tersedia</strong>
                             <p>Silakan periksa kembali nanti atau hubungi kami untuk informasi lebih lanjut.</p>
@@ -64,7 +82,7 @@
                 <span class="section-eyebrow">MULAI TERHUBUNG</span>
                 <h2>Butuh solusi yang disesuaikan dengan skala bisnis Anda?</h2>
                 <p>Konsultasikan kebutuhan infrastruktur dan jaringan perusahaan Anda bersama tim ahli kami.</p>
-                <a href="#contact" class="btn-primary btn-primary-light">Diskusikan Kebutuhan Anda <span aria-hidden="true">→</span></a>
+                <a href="{{ url('/contact') }}" class="btn-primary btn-primary-light">Diskusikan Kebutuhan Anda <span aria-hidden="true">→</span></a>
             </div>
         </section>
     </main>

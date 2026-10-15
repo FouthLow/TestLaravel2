@@ -69,6 +69,53 @@
   border-bottom: 1px solid #edf3fb;
 }
 
+/* Product Card Flex & Elements Styling (Tanpa Inline Style) */
+.produk-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.produk-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.produk-card-img-wrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+.produk-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.produk-card-title {
+  margin-bottom: 8px;
+}
+
+.produk-card-price {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 12px;
+}
+
+.produk-card-desc {
+  margin-bottom: 20px;
+}
+
+.produk-empty-card {
+  grid-column: 1 / -1;
+}
+
 /* Pagination container */
 .pagination-container {
   margin-top: 48px;

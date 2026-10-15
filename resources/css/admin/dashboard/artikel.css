@@ -1,0 +1,53 @@
+/* ==========================================================================
+   DASHBOARD ARTIKEL CSS (FULLY SEPARATED)
+   ========================================================================== */
+
+.artikel-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.artikel-alert {
+  margin-bottom: 20px;
+}
+
+.artikel-form-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.artikel-form-group {
+  margin-bottom: 16px;
+}
+
+.artikel-form-group-last {
+  margin-bottom: 24px;
+}
+
+.artikel-file-input {
+  padding: 10px;
+  background: #f8fbff;
+}
+
+.artikel-preview-wrap {
+  margin-bottom: 10px;
+}
+
+.artikel-detail-img {
+  max-height: 280px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid #e5edf7;
+}
+
+.artikel-detail-placeholder {
+  height: 200px;
+  background: #eef4ff;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  color: var(--blue);
+  font-weight: 800;
+}

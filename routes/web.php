@@ -7,15 +7,18 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;    
 use Illuminate\Support\Facades\Route;
 
+/*Route*/
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/artikel', [HomeController::class, 'artikel']);
 Route::get('/galeri', [HomeController::class, 'galeri']);
 Route::get('/produk', [HomeController::class, 'product']);
 Route::get('/contact', [HomeController::class, 'contact']);
 
+/*Route by id */
+Route::get('/artikel/{id}', [HomeController::class, 'ArtikelShow']);
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

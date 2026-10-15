@@ -40,4 +40,10 @@ class HomeController extends Controller
     public function contact()  {
         return view('home.contact');
     }
+    
+    public function artikelshow($id)
+    {
+        $artikel = Artikel::findOrFail($id);
+        return view('home.show.artikel', compact('artikel'));
+    }
 }
