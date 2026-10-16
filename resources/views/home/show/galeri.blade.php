@@ -4,66 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f8fbff">
-    <meta name="description" content="Dokumentasi foto, kegiatan, dan portofolio proyek infrastruktur serta jaringan dari PT Solusi Koneksi Anda.">
-    <title>Galeri | PT Solusi Koneksi Anda</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <meta name="description" content="{{ $galeri->title ?? 'Detail Dokumentasi Galeri' }} - PT Solusi Koneksi Anda">
+    <title>{{ $galeri->title ?? 'Detail Galeri' }} | PT Solusi Koneksi Anda</title>
+    <!-- Memuat file CSS utama, CSS khusus detail galeri, dan JS melalui Vite -->
+    @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 <body class="site-body">
 
     @include('layouts.home.navbar')
 
     <main>
-        <section class="galeri-hero">
-            <div class="galeri-glow galeri-glow-one" aria-hidden="true"></div>
-            <div class="galeri-glow galeri-glow-two" aria-hidden="true"></div>
-            <div class="section-container galeri-hero-container">
-                <div class="hero-copy">
-                    <span class="section-eyebrow"><span class="eyebrow-dot"></span> Dokumentasi & Portofolio</span>
-                    <h1 class="galeri-hero-title">Galeri <span>Kegiatan & Proyek</span></h1>
-                    <p class="galeri-hero-desc">Dokumentasi visual dari berbagai aktivitas, instalasi infrastruktur jaringan, dan pencapaian proyek bersama mitra kami.</p>
+        <section class="galeri-show-hero">
+            <div class="section-container galeri-show-container">
+                <div class="back-link-wrap">
+                    <a href="{{ url('/galeri') }}" class="btn-back-galeri">
+                        ← Kembali ke Galeri
+                    </a>
                 </div>
             </div>
-            <div class="hero-bottom-line" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
         </section>
 
-        <section class="galeri-list-section">
+        <section class="galeri-detail-section">
             <div class="section-container">
-                <div class="galeri-grid">
-                    @forelse($galeris as $galeri)
-                        <div class="galeri-card">
-                            <div class="galeri-card-img-wrap">
-                                @if($galeri->image)
-                                    <img src="{{ asset('storage/' . $galeri->image) }}" alt="{{ $galeri->title ?? 'Galeri PT Solusi Koneksi Anda' }}" class="galeri-card-img" loading="lazy">
-                                @else
-                                    <div class="galeri-card-no-img">
-                                        <span class="placeholder-symbol">SKA</span>
-                                        <span>Dokumentasi Proyek</span>
-                                    </div>
-                                @endif
+                <article class="galeri-detail-card">
+                    
+                    <!-- Area Foto Galeri -->
+                    <div class="galeri-detail-img-wrap">
+                        @if($galeri->image)
+                            <img src="{{ asset('storage/' . $galeri->image) }}" alt="{{ $galeri->title ?? 'Dokumentasi Galeri' }}" class="galeri-detail-img">
+                        @else
+                            <div class="galeri-detail-no-img">
+                                <span style="font-size: 32px;">📷</span>
+                                <span>PT Solusi Koneksi Anda</span>
                             </div>
-                            @if(isset($galeri->title) && $galeri->title)
-                                <div class="galeri-card-body">
-                                    <h3 class="galeri-card-title">{{ $galeri->title }}</h3>
-                                    @if(isset($galeri->description) && $galeri->description)
-                                        <p class="galeri-card-desc">{{ Str::limit($galeri->description, 90) }}</p>
-                                    @endif
-                                </div>
-                            @endif
-                        </div>
-                    @empty
-                        <div class="article-empty" style="grid-column: 1/-1;">
-                            <span class="empty-icon">✳</span>
-                            <strong>Belum ada dokumentasi galeri</strong>
-                            <p>Foto kegiatan dan portofolio proyek akan segera diperbarui di sini.</p>
-                        </div>
-                    @endforelse
-                </div>
-
-                @if(method_exists($galeris, 'links'))
-                    <div class="pagination-container">
-                        {{ $galeris->links() }}
+                        @endif
                     </div>
-                @endif
+
+                    <!-- Informasi & Deskripsi -->
+                    <div class="galeri-detail-body">
+                        <div class="galeri-detail-meta">
+                            <span>Dokumentasi Resmi</span>
+                            <span>•</span>
+                            <span>{{ $galeri->created_at ? $galeri->created_at->format('d M Y') : '' }}</span>
+                        </div>
+
+                        <h1 class="galeri-detail-title">
+                            {{ $galeri->judul ?? 'Dokumentasi Proyek & Kegiatan' }}
+                        </h1>
+
+                        <div class="galeri-detail-content">
+                            {{ $galeri->deskripsi ?? 'Tidak ada deskripsi tambahan untuk dokumentasi galeri ini.' }}
+                        </div>
+                    </div>
+
+                </article>
             </div>
         </section>
 
@@ -71,14 +65,14 @@
             <div class="contact-cta-glow" aria-hidden="true"></div>
             <div class="contact-cta-content">
                 <span class="section-eyebrow">MULAI TERHUBUNG</span>
-                <h2>Ingin melihat bagaimana kami bekerja untuk Anda?</h2>
-                <p>Diskusikan kebutuhan teknologi dan infrastruktur jaringan perusahaan Anda bersama kami.</p>
-                <a href="#contact" class="btn-primary btn-primary-light">Diskusikan Kebutuhan Anda <span aria-hidden="true">→</span></a>
+                <h2>Ingin berkonsultasi mengenai proyek infrastruktur Anda?</h2>
+                <p>Diskusikan kebutuhan jaringan dan teknologi perusahaan Anda bersama tim ahli kami.</p>
+                <a href="{{ url('/contact') }}" class="btn-primary btn-primary-light">Diskusikan Kebutuhan Anda <span aria-hidden="true">→</span></a>
             </div>
         </section>
     </main>
 
     @include('layouts.home.footer')
-
+    
 </body>
 </html>

@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f8fbff">
-    <meta name="description" content="Jelajahi berbagai produk, layanan internet, dan solusi infrastruktur jaringan terbaik dari PT Solusi Koneksi Anda untuk mendukung bisnis Anda.">
-    <title>Produk & Layanan | PT Solusi Koneksi Anda</title>
+    <meta name="description" content="{{ Str::limit(strip_tags($product->deskripsi), 150) }}">
+    <title>{{ $product->nama }} | PT Solusi Koneksi Anda</title>
+    <!-- Vite memuat CSS global, CSS khusus detail produk, dan JS -->
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 <body class="site-body">
@@ -13,63 +14,68 @@
     @include('layouts.home.navbar')
 
     <main>
-        <section class="produk-hero">
-            <div class="produk-glow produk-glow-one" aria-hidden="true"></div>
-            <div class="produk-glow produk-glow-two" aria-hidden="true"></div>
-            <div class="section-container produk-hero-container">
-                <div class="hero-copy">
-                    <span class="section-eyebrow"><span class="eyebrow-dot"></span> Solusi & Penawaran</span>
-                    <h1 class="produk-hero-title">Produk & <span>Layanan Unggulan</span></h1>
-                    <p class="produk-hero-desc">Solusi konektivitas, infrastruktur jaringan, dan integrasi perangkat berstandar tinggi yang dirancang khusus untuk mengoptimalkan operasional bisnis Anda.</p>
-                </div>
-            </div>
-            <div class="hero-bottom-line" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-        </section>
-
-        <section class="produk-list-section">
+        <section class="product-detail-section">
             <div class="section-container">
-                <div class="services-grid">
-                    @forelse($products as $product)
-                        <article class="service-card">
-                            <div class="service-card-top">
-                                <span class="service-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 9.5a13.1 13.1 0 0 1 18 0M6.5 13a8 8 0 0 1 11 0M10 16.5a3 3 0 0 1 4 0M12 20h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                                </span>
-                                <span class="service-number">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
-                            </div>
-                            <h3>{{ $product->name ?? $product->title }}</h3>
-                            <p>{{ Str::limit($product->description ?? $product->content, 110) }}</p>
-                            <a href="#contact" class="service-arrow" aria-label="Pesan atau konsultasikan layanan ini">↗</a>
-                        </article>
-                    @empty
-                        <div class="article-empty" style="grid-column: 1/-1;">
-                            <span class="empty-icon">✳</span>
-                            <strong>Belum ada produk atau layanan tersedia</strong>
-                            <p>Silakan periksa kembali nanti atau hubungi kami untuk informasi lebih lanjut.</p>
-                        </div>
-                    @endforelse
+                
+                <!-- Tombol Navigasi Kembali -->
+                <div class="product-back-nav">
+                    <a href="{{ url('/produk') }}" class="btn-back-link">
+                        <span aria-hidden="true">←</span> Kembali ke Katalog Produk & Layanan
+                    </a>
                 </div>
 
-                @if(method_exists($products, 'links'))
-                    <div class="pagination-container">
-                        {{ $products->links() }}
+                <!-- Card Utama Penawaran Produk -->
+                <div class="product-showcase-card">
+                    
+                    <!-- Kolom Gambar Visual -->
+                    <div class="product-visual-col">
+                        @if ($product->image)
+                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->nama }}" class="product-featured-img">
+                        @else
+                            <div class="product-no-img-box">
+                                <span class="product-placeholder-icon">🌐</span>
+                                <span>Solusi & Layanan SKA</span>
+                            </div>
+                        @endif
                     </div>
-                @endif
-            </div>
-        </section>
 
-        <section class="contact-cta">
-            <div class="contact-cta-glow" aria-hidden="true"></div>
-            <div class="contact-cta-content">
-                <span class="section-eyebrow">MULAI TERHUBUNG</span>
-                <h2>Butuh solusi yang disesuaikan dengan skala bisnis Anda?</h2>
-                <p>Konsultasikan kebutuhan infrastruktur dan jaringan perusahaan Anda bersama tim ahli kami.</p>
-                <a href="#contact" class="btn-primary btn-primary-light">Diskusikan Kebutuhan Anda <span aria-hidden="true">→</span></a>
+                    <!-- Kolom Rincian & Penawaran -->
+                    <div class="product-info-col">
+                        <div>
+                            <span class="product-badge">Layanan & Produk Resmi</span>
+                            <h1 class="product-main-title">{{ $product->nama }}</h1>
+                            
+                            @if(isset($product->harga))
+                                <div class="product-price-box">
+                                    <div class="product-price-label">Estimasi / Harga Investasi</div>
+                                    <div class="product-price-value">
+                                        Rp {{ number_format($product->harga, 0, ',', '.') }}
+                                    </div>
+                                </div>
+                            @endif
+
+                            <div class="product-specs-wrapper">
+                                <div class="product-specs-title">Deskripsi & Cakupan Layanan</div>
+                                <div class="product-specs-content">
+                                    {{ $product->deskripsi }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tombol Aksi / Pemesanan -->
+                        <div class="product-cta-actions">
+                            <a href="{{ url('/contact') }}" class="btn-order-primary">
+                                Konsultasikan & Pesan Layanan <span aria-hidden="true">→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </section>
-    </main>
 
     @include('layouts.home.footer')
-    
+
 </body>
 </html>

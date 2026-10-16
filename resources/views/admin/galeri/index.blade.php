@@ -48,8 +48,7 @@
                                 @endif
                             </td>
                             <td class="col-name">{{ $galeri->judul }}</td>
-                            <td class="col-price">{{ Str::limit($galeri->deksripsi, 50) ?? '-' }}</td>
-                            <td class="text-center">
+                            <td class="col-desc">{{ $galeri->deskripsi ? Str::limit($galeri->deskripsi, 50) : '-' }}</td>                            <td class="text-center">
                                 <div class="table-actions">
                                     <a href="{{ route('galeris.show', $galeri->id) }}" class="action-link-detail">Detail</a>
                                     <a href="{{ route('galeris.edit', $galeri->id) }}" class="action-link-edit">Edit</a>

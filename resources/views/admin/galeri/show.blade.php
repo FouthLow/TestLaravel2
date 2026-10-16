@@ -32,7 +32,7 @@
 
                 <div>
                     <span style="font-size: 10px; font-weight: 800; text-transform: uppercase; color: #8c9bb0; letter-spacing: 0.1em;">Deskripsi</span>
-                    <p style="margin: 4px 0 0; font-size: 13px; color: #687991; line-height: 1.7;">{{ $galeri->deksripsi ?? 'Tidak ada deskripsi.' }}</p>
+                    <p style="margin: 4px 0 0; font-size: 13px; color: #687991; line-height: 1.7;">{{ $galeri->deskripsi ?? 'Tidak ada deskripsi.' }}</p>
                 </div>
             </div>
 

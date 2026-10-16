@@ -30,9 +30,9 @@
                 </div>
 
                 <div class="form-group product-form-group-last">
-                    <label for="deksripsi">Deskripsi</label>
-                    <textarea name="deksripsi" id="deksripsi" rows="4" placeholder="Tuliskan deskripsi galeri...">{{ old('deksripsi') }}</textarea>
-                    @error('deksripsi') <span class="error-text">{{ $message }}</span> @enderror
+                    <label for="deskripsi">Deskripsi</label>
+                    <textarea name="deskripsi" id="deskripsi" rows="4" placeholder="Tuliskan deskripsi galeri...">{{ old('deskripsi') }}</textarea>
+                    @error('deskripsi') <span class="error-text">{{ $message }}</span> @enderror
                 </div>
 
                 <div class="form-actions">

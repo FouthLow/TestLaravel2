@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#f8fbff">
     <meta name="description" content="Hubungi PT Solusi Koneksi Anda untuk konsultasi layanan internet, infrastruktur jaringan, dan solusi teknologi bisnis.">
     <title>Hubungi Kami | PT Solusi Koneksi Anda</title>
-    @vite(['resources/css/app.css', 'resources/css/contact.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 <body class="site-body">
 
@@ -74,41 +74,42 @@
                         </div>
                     </div>
 
-                    <!-- Formulir Pesan (Statis) -->
+                    <!-- Formulir Pesan (Terhubung ke Database & Admin) -->
                     <div class="contact-form-card">
                         <span class="section-eyebrow">KIRIM PESAN</span>
                         <h2 class="contact-section-title">Diskusikan Kebutuhan Anda</h2>
                         <p class="contact-desc">Isi formulir di bawah ini dan tim kami akan segera merespons pesan Anda.</p>
 
-                        <!-- Simulasi Alert Berhasil (opsional, bisa dihapus atau di-comment jika belum dipakai) -->
-                        <!-- 
-                        <div class="alert-success">
-                            ✓ Pesan Anda berhasil dikirim! Terima kasih telah menghubungi kami.
-                        </div> 
-                        -->
+                        <!-- Notifikasi Berhasil -->
+                        @if(session('berhasil'))
+                            <div class="alert-success" style="background: #dcfce7; color: #166534; padding: 14px 18px; border-radius: 12px; margin-bottom: 24px; font-size: 13px; font-weight: 700; border: 1px solid #bbf7d0;">
+                                ✓ {{ session('berhasil') }}
+                            </div>
+                        @endif
 
-                        <form action="javascript:void(0);" method="POST" class="contact-form">
+                        <form action="{{ route('contact.store') }}" method="POST" class="contact-form">
+                            @csrf
                             <div class="form-group">
                                 <label for="name">Nama Lengkap</label>
-                                <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
+                                <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" value="{{ old('name') }}" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="email">Alamat Email</label>
-                                <input type="email" id="email" name="email" placeholder="nama@domain.com" required>
+                                <input type="email" id="email" name="email" placeholder="nama@domain.com" value="{{ old('email') }}" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="phone">Nomor Telepon / WhatsApp</label>
-                                <input type="text" id="phone" name="phone" placeholder="08xxxxxxxxxx">
+                                <input type="text" id="phone" name="phone" placeholder="08xxxxxxxxxx" value="{{ old('phone') }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="message">Pesan / Kebutuhan</label>
-                                <textarea id="message" name="message" rows="4" placeholder="Tuliskan detail kebutuhan atau pertanyaan Anda..." required></textarea>
+                                <textarea id="message" name="message" rows="4" placeholder="Tuliskan detail kebutuhan atau pertanyaan Anda..." required>{{ old('message') }}</textarea>
                             </div>
 
-                            <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; cursor: pointer;">
+                            <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; cursor: pointer; border: none;">
                                 Kirim Pesan Sekarang <span aria-hidden="true">→</span>
                             </button>
                         </form>

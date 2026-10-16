@@ -46,4 +46,16 @@ class HomeController extends Controller
         $artikel = Artikel::findOrFail($id);
         return view('home.show.artikel', compact('artikel'));
     }
+    
+    public function productshow($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('home.show.produk', compact('product'));
+    }
+
+    public function galerishow($id)
+    {
+        $galeri = Galeri::findOrFail($id);
+        return view('home.show.galeri', compact('galeri'));
+    }
 }

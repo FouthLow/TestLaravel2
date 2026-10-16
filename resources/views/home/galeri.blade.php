@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#f8fbff">
     <meta name="description" content="Dokumentasi foto, kegiatan, dan portofolio proyek infrastruktur serta jaringan dari PT Solusi Koneksi Anda.">
     <title>Galeri | PT Solusi Koneksi Anda</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 <body class="site-body">
 
@@ -30,28 +30,28 @@
             <div class="section-container">
                 <div class="galeri-grid">
                     @forelse($galeris as $galeri)
-                        <div class="galeri-card">
-                            <div class="galeri-card-img-wrap">
-                                @if($galeri->image)
-                                    <img src="{{ asset('storage/' . $galeri->image) }}" alt="{{ $galeri->title ?? 'Galeri PT Solusi Koneksi Anda' }}" class="galeri-card-img" loading="lazy">
-                                @else
-                                    <div class="galeri-card-no-img">
-                                        <span class="placeholder-symbol">SKA</span>
-                                        <span>Dokumentasi Proyek</span>
-                                    </div>
-                                @endif
-                            </div>
-                            @if(isset($galeri->title) && $galeri->title)
-                                <div class="galeri-card-body">
-                                    <h3 class="galeri-card-title">{{ $galeri->title }}</h3>
-                                    @if(isset($galeri->description) && $galeri->description)
-                                        <p class="galeri-card-desc">{{ Str::limit($galeri->description, 90) }}</p>
+                        <a href="{{ route('galeri.show', $galeri->id) }}" class="galeri-card-link">
+                            <article class="galeri-card">
+                                <div class="galeri-card-img-wrap">
+                                    @if($galeri->image)
+                                        <img src="{{ asset('storage/' . $galeri->image) }}" alt="{{ $galeri->judul ?? 'Galeri PT Solusi Koneksi Anda' }}" class="galeri-card-img" loading="lazy">
+                                    @else
+                                        <div class="galeri-card-no-img">
+                                            <span class="placeholder-symbol">SKA</span>
+                                            <span>Dokumentasi Proyek</span>
+                                        </div>
                                     @endif
                                 </div>
-                            @endif
-                        </div>
+                                <div class="galeri-card-body">
+                                    <h3 class="galeri-card-title">{{ $galeri->judul ?? 'Dokumentasi Galeri' }}</h3>
+                                    @if(isset($galeri->deskripsi) && $galeri->deskripsi)
+                                        <p class="galeri-card-desc">{{ Str::limit($galeri->deskripsi, 90) }}</p>
+                                    @endif
+                                </div>
+                            </article>
+                        </a>
                     @empty
-                        <div class="article-empty" style="grid-column: 1/-1;">
+                        <div class="article-empty galeri-empty-card" style="grid-column: 1/-1;">
                             <span class="empty-icon">✳</span>
                             <strong>Belum ada dokumentasi galeri</strong>
                             <p>Foto kegiatan dan portofolio proyek akan segera diperbarui di sini.</p>
@@ -73,7 +73,7 @@
                 <span class="section-eyebrow">MULAI TERHUBUNG</span>
                 <h2>Ingin melihat bagaimana kami bekerja untuk Anda?</h2>
                 <p>Diskusikan kebutuhan teknologi dan infrastruktur jaringan perusahaan Anda bersama kami.</p>
-                <a href="#contact" class="btn-primary btn-primary-light">Diskusikan Kebutuhan Anda <span aria-hidden="true">→</span></a>
+                <a href="{{ url('/contact') }}" class="btn-primary btn-primary-light">Diskusikan Kebutuhan Anda <span aria-hidden="true">→</span></a>
             </div>
         </section>
     </main>

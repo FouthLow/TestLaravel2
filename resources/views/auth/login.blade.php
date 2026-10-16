@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#f8fbff">
     <meta name="description" content="Masuk ke panel admin PT Solusi Koneksi Anda.">
     <title>Login Admin | PT Solusi Koneksi Anda</title>
-    @vite(['resources/css/app.css', 'resources/css/auth.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="site-body auth-body">
     <div class="auth-container">

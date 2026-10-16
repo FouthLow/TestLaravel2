@@ -7,7 +7,7 @@
     <meta name="description" content="Jelajahi berbagai produk, layanan internet, dan solusi infrastruktur jaringan terbaik dari PT Solusi Koneksi Anda untuk mendukung bisnis Anda.">
     <title>Produk & Layanan | PT Solusi Koneksi Anda</title>
     <!-- Memuat file CSS terpisah -->
-    @vite(['resources/css/app.css', 'resources/css/produk.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="site-body">
 
@@ -29,35 +29,47 @@
 
         <section class="produk-list-section">
             <div class="section-container">
-                <div class="services-grid">
+                <div class="produk-grid">
                     @forelse($products as $product)
-                        <article class="service-card produk-card">
+                        <article class="produk-item-card">
                             <div>
-                                <div class="produk-card-top">
+                                <!-- Area Gambar Produk di atas -->
+                                <a href="{{ url('/produk/' . $product->id) }}" class="produk-card-img-link">
                                     @if($product->image)
-                                        <div class="produk-card-img-wrapper">
-                                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->nama }}" class="produk-card-img">
-                                        </div>
+                                        <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->nama }}" class="produk-card-img">
                                     @else
-                                        <span class="service-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 9.5a13.1 13.1 0 0 1 18 0M6.5 13a8 8 0 0 1 11 0M10 16.5a3 3 0 0 1 4 0M12 20h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                                        </span>
+                                        <div class="produk-card-no-img">
+                                            <span style="font-size: 24px;">📦</span>
+                                            <span>PT Solusi Koneksi Anda</span>
+                                        </div>
                                     @endif
-                                    <span class="service-number">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
-                                </div>
-                                
-                                <h3 class="produk-card-title">{{ $product->nama }}</h3>
-                                
-                                @if(isset($product->harga))
-                                    <div class="produk-card-price">
-                                        Rp {{ number_format($product->harga, 0, ',', '.') }}
-                                    </div>
-                                @endif
+                                </a>
 
-                                <p class="produk-card-desc">{{ Str::limit($product->deskripsi, 110) }}</p>
+                                <div class="produk-card-body">
+                                    <span class="produk-card-category">Layanan Resmi</span>
+                                    
+                                    <h3 class="produk-card-title">
+                                        <a href="{{ url('/produk/' . $product->id) }}" style="color: inherit; text-decoration: none;">
+                                            {{ $product->nama }}
+                                        </a>
+                                    </h3>
+                                    
+                                    @if(isset($product->harga))
+                                        <div class="produk-card-price">
+                                            Rp {{ number_format($product->harga, 0, ',', '.') }}
+                                        </div>
+                                    @endif
+
+                                    <p class="produk-card-desc">{{ Str::limit($product->deskripsi, 100) }}</p>
+                                </div>
                             </div>
 
-                            <a href="{{ url('/contact') }}" class="service-arrow" aria-label="Pesan atau konsultasikan layanan ini">↗</a>
+                            <!-- Tombol Aksi di Bawah Card -->
+                            <div class="produk-card-footer">
+                                <a href="{{ url('/produk/' . $product->id) }}" class="btn-produk-detail">
+                                    Lihat Penawaran <span aria-hidden="true">→</span>
+                                </a>
+                            </div>
                         </article>
                     @empty
                         <div class="article-empty produk-empty-card">

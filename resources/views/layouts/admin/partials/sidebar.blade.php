@@ -17,6 +17,9 @@
         <a href="{{ route('galeris.index') }}" class="sidebar-link {{ request()->is('*galeri*') ? 'sidebar-link-active' : '' }}">
             <span>🖼️</span> Kelola Galeri
         </a>
+        <a href="{{ route('contacts.index') }}" class="sidebar-link {{ request()->is('*galeri*') ? 'sidebar-link-active' : '' }}">
+            <span>🖼️</span> Pesan Masuk
+        </a>
         <a href="{{ route('profile.edit') }}" class="sidebar-link {{ request()->routeIs('profile.*') ? 'sidebar-link-active' : '' }}">
             <span>⚙️</span> Pengaturan Akun
         </a>

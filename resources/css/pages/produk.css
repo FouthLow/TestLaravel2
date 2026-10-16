@@ -1,8 +1,7 @@
 /* ==========================================================================
-   PRODUK PAGE SPECIFIC CSS
+   PRODUK CATALOG PAGE SPECIFIC CSS
    ========================================================================== */
 
-/* Hero Section khusus halaman produk */
 .produk-hero {
   position: relative;
   isolation: isolate;
@@ -22,7 +21,7 @@
   letter-spacing: -0.055em;
   font-weight: 800;
   color: #10233f;
-  margin: 15px 0 15px;
+  margin: 15px 0;
 }
 
 .produk-hero-title span {
@@ -37,7 +36,6 @@
   margin: 0;
 }
 
-/* Glow effects for hero */
 .produk-glow {
   position: absolute;
   z-index: -1;
@@ -62,68 +60,169 @@
   background: radial-gradient(circle, rgba(51, 130, 246, 0.12), rgba(51, 130, 246, 0) 70%);
 }
 
-/* List Section */
 .produk-list-section {
   padding: 64px 0 96px;
   background: #f7faff;
   border-bottom: 1px solid #edf3fb;
 }
 
-/* Product Card Flex & Elements Styling (Tanpa Inline Style) */
-.produk-card {
+/* Grid Katalog Produk */
+.produk-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .produk-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .produk-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card Produk Gaya E-Commerce / Showcase */
+.produk-item-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 0 10px 30px rgba(23, 65, 120, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.produk-card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
+.produk-item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 45px rgba(23, 104, 232, 0.08);
+  border-color: #cbd5e1;
 }
 
-.produk-card-img-wrapper {
-  width: 50px;
-  height: 50px;
-  border-radius: 8px;
-  overflow: hidden;
+.produk-card-img-link {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
   background: #f1f5f9;
+  overflow: hidden;
+  position: relative;
 }
 
 .produk-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
-.produk-card-title {
+.produk-item-card:hover .produk-card-img {
+  transform: scale(1.04);
+}
+
+.produk-card-no-img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: radial-gradient(circle, #f8fbff, #e2e8f0);
+}
+
+.produk-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.produk-card-category {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #2563eb;
   margin-bottom: 8px;
 }
 
-.produk-card-price {
-  font-size: 32px;
-  font-weight: 700;
+.produk-card-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.35;
+  margin: 0 0 10px;
+  letter-spacing: -0.02em;
+}
+
+.produk-card-title a:hover {
   color: #2563eb;
+}
+
+.produk-card-price {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1768e8;
   margin-bottom: 12px;
 }
 
 .produk-card-desc {
-  margin-bottom: 20px;
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.7;
+  margin: 0 0 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.produk-card-footer {
+  padding: 0 24px 24px;
+  margin-top: auto;
+}
+
+.btn-produk-detail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: #eff6ff;
+  color: #1768e8;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 750;
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+}
+
+.btn-produk-detail:hover {
+  background: #1768e8;
+  color: #ffffff;
 }
 
 .produk-empty-card {
   grid-column: 1 / -1;
 }
 
-/* Pagination container */
 .pagination-container {
   margin-top: 48px;
   display: flex;
   justify-content: center;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .produk-hero {
     padding: 50px 0 40px;
