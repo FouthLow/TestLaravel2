@@ -14,7 +14,7 @@
             <!-- Brand Logo Header -->
             <div class="auth-header">
                 <a href="{{ url('/') }}" class="brand-logo" aria-label="PT Solusi Koneksi Anda - Beranda">
-                    <span class="brand-icon" aria-hidden="true"><span>S</span></span>
+                <img src="{{ asset('storage/images/Logo.svg') }}" alt="Logo Solusi Koneksi Anda" class="brand-svg-logo">            <span class="brand-copy">
                     <span class="brand-copy">
                         <span class="brand-title">Solusi Koneksi Anda</span>
                         <span class="brand-subtitle">Admin Dashboard</span>
@@ -50,9 +50,6 @@
                 <div class="form-group">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <label for="password">Password</label>
-                        @if (Route::has('password.request'))
-                            <a href="{{ route('password.request') }}" class="auth-link">Lupa password?</a>
-                        @endif
                     </div>
                     <input id="password" type="password" name="password" placeholder="••••••••" required autocomplete="current-password">
                     @if ($errors->has('password'))

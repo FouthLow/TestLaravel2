@@ -75,24 +75,12 @@ a {
   flex-shrink: 0;
 }
 
-.brand-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(145deg, #3488ff, #1455cf);
-  box-shadow: 0 8px 18px rgba(23, 104, 232, 0.22);
-  color: #fff;
-  font-size: 23px;
-  font-weight: 800;
-  position: relative;
-  overflow: hidden;
-}
-
-.brand-icon span {
-  position: relative;
-  z-index: 1;
+.brand-svg-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+    filter: invert(50%) sepia(85%) saturate(3015%) hue-rotate(208deg) brightness(96%) contrast(92%);
 }
 
 .brand-copy {

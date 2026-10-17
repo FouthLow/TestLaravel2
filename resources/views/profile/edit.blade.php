@@ -25,16 +25,4 @@
                 @include('profile.partials.update-password-form')
             </div>
         </div>
-
-        <!-- Form Hapus Akun -->
-        <div class="admin-card" style="border-color: #ffd1d1; background: #fffcfc;">
-            <div class="profile-section-title">
-                <h3 style="color: #c53030;">Hapus Akun</h3>
-                <p>Setelah akun dihapus, semua sumber daya dan data akan dihapus secara permanen.</p>
-            </div>
-            <div style="max-width: 600px;">
-                @include('profile.partials.delete-user-form')
-            </div>
-        </div>
-    </div>
 </x-app-layout>

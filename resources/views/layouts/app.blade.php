@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#f8fbff">
     <meta name="description" content="Dashboard Admin PT Solusi Koneksi Anda">
     <title>Dashboard Admin | PT Solusi Koneksi Anda</title>
-    @vite(['resources/css/app.css', 'resources/css/admin.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="site-body admin-body">
 

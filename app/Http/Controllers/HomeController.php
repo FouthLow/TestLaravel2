@@ -6,12 +6,16 @@ use Illuminate\Http\Request;
 use App\Models\Artikel;
 use App\Models\Product;
 use App\Models\Galeri;
+use App\Models\HomeContent;
 
 class HomeController extends Controller
 {
     public function index()
     {
+        $contents = HomeContent::pluck('value', 'key')->toArray();    
+
         return view('home.index', [
+        'contents' => $contents,
         'products' => Product::latest()->take(3)->get(),
         'artikels' => Artikel::latest()->take(3)->get(),
         'galeris' => Galeri::latest()->take(4)->get(),

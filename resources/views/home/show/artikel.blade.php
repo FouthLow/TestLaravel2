@@ -6,38 +6,43 @@
     <meta name="theme-color" content="#f8fbff">
     <meta name="description" content="{{ Str::limit(strip_tags($artikel->deskripsi), 150) }}">
     <title>{{ $artikel->judul }} | PT Solusi Koneksi Anda</title>
-    <!-- Memuat file CSS terpisah khusus detail artikel publik -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     @vite(['resources/css/app.css', 'resources/css/artikel-detail.css', 'resources/js/app.js'])
 </head>
 <body class="site-body">
 
     @include('layouts.home.navbar')
 
-    <main class="py-12">
-        <article class="section-container public-article-container">
-            
-            <!-- Navigasi Kembali -->
-            <div class="public-article-back">
-                <a href="{{ url('/artikel') }}" class="public-article-back-link">
-                    <span aria-hidden="true">←</span> Kembali ke Daftar Artikel
-                </a>
-            </div>
+    <main class="public-article-full-wrapper">
+        
+        <!-- Hero & Title Section -->
+        <header class="public-article-hero">
+            <div class="article-hero-container">
+                <div class="public-article-back">
+                    <a href="{{ url('/artikel') }}" class="btn-article-back">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                        <span>Kembali ke Daftar Artikel</span>
+                    </a>
+                </div>
 
-            <!-- Header Artikel -->
-            <header class="public-article-header">
                 <div class="public-article-meta">
                     <span class="public-article-badge">Wawasan & Berita</span>
-                    <span>•</span>
+                    <span class="meta-dot">•</span>
                     <time datetime="{{ $artikel->created_at?->toIso8601String() }}">
                         {{ $artikel->created_at?->translatedFormat('d F Y') ?? $artikel->created_at?->format('d M Y') }}
                     </time>
                 </div>
+
                 <h1 class="public-article-title">
                     {{ $artikel->judul }}
                 </h1>
-            </header>
+            </div>
+        </header>
 
-            <!-- Gambar Utama -->
+        <!-- Main Content Area -->
+        <div class="article-body-container">
+            
+            <!-- Gambar Utama Full-Width Display -->
             @if ($artikel->image)
                 <div class="public-article-img-wrap">
                     <img src="{{ asset('storage/' . $artikel->image) }}" alt="{{ $artikel->judul }}" class="public-article-img" loading="lazy">
@@ -49,17 +54,20 @@
                 {!! nl2br(e($artikel->deskripsi)) !!}
             </div>
 
-            <!-- Footer / Tombol Navigasi Bawah -->
+            <!-- Footer Artikel -->
             <footer class="public-article-footer">
-                <a href="{{ url('/artikel') }}" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 8px;">
-                    <span aria-hidden="true">←</span> Artikel Lainnya
+                <a href="{{ url('/artikel') }}" class="btn-article-back">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                    <span>Artikel Lainnya</span>
                 </a>
                 <div class="public-article-author">
                     Dipublikasikan oleh <strong>PT Solusi Koneksi Anda</strong>
                 </div>
             </footer>
 
-        </article>
+        </div>
+
+    </main>
 
     @include('layouts.home.footer')
 

@@ -85,3 +85,177 @@
     padding: 48px 0 72px;
   }
 }
+
+/* Header & Navigation Detail Artikel */
+.artikel-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Tombol Kembali yang Jelas & Kontras */
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: #f1f5f9;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-back:hover {
+  background: #1768e8;
+  color: #ffffff;
+  border-color: #1768e8;
+  box-shadow: 0 4px 12px rgba(23, 104, 232, 0.2);
+}
+
+.btn-back .material-symbols-outlined {
+  font-size: 18px;
+}
+
+/* Card Detail Artikel */
+.artikel-detail-card {
+  padding: 32px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.artikel-image-wrapper {
+  margin-bottom: 28px;
+  text-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f8fafc;
+}
+
+.product-detail-img {
+  max-height: 380px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Content Spacing */
+.artikel-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* Bikin jarak antar field lega */
+}
+
+.detail-field-group .field-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #94a3b8;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.artikel-title-text {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.artikel-body-text {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.8;
+  white-space: pre-line;
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.artikel-detail-footer {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #f1f5f9;
+}
+
+/* ==========================================================================
+   FORM ACTIONS & BUTTON STYLING
+   ========================================================================== */
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #edf2f8;
+}
+
+/* Tombol Batal (Secondary) - Terlihat jelas dengan background abu-abu terang */
+.btn-secondary,
+.product-btn-cancel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-secondary:hover,
+.product-btn-cancel:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+  border-color: #94a3b8;
+}
+
+/* Tombol Submit (Primary) - Biru Utama */
+.btn-primary,
+.product-btn-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 22px;
+  background: #1768e8;
+  color: #ffffff;
+  border: 1px solid #1768e8;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(23, 104, 232, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary:hover,
+.product-btn-submit:hover {
+  background: #1254bf;
+  border-color: #1254bf;
+  box-shadow: 0 6px 16px rgba(23, 104, 232, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-secondary .material-symbols-outlined,
+.btn-primary .material-symbols-outlined {
+  font-size: 18px;
+}

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Daftar Pesan Masuk | Admin Dashboard PT Solusi Koneksi Anda</title>
     <!-- Memuat file CSS utama, CSS khusus admin contact, dan JS melalui Vite -->
-    @vite(['resources/css/app.css', 'resources/css/admin-contact.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 <body>
     <x-app-layout>

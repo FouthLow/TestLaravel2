@@ -1,8 +1,7 @@
 <header class="site-header admin-header">
     <div class="header-container admin-header-container">
         <a href="{{ route('dashboard') }}" class="brand-logo" aria-label="Dashboard Admin">
-            <span class="brand-icon" aria-hidden="true"><span>S</span></span>
-            <span class="brand-copy">
+        <img src="{{ asset('storage/images/Logo.svg') }}" alt="Logo Solusi Koneksi Anda" class="brand-svg-logo">            <span class="brand-copy">
                 <span class="brand-title">Solusi Koneksi Anda</span>
                 <span class="brand-subtitle">Admin Panel</span>
             </span>

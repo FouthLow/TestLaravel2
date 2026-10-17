@@ -13,13 +13,30 @@
     @include('layouts.home.navbar')
 
     <main>
-        <!-- Hero Section dengan Background Banner Full di Belakang Teks -->
-        <section class="home-hero" style="background: linear-gradient(rgba(13, 40, 85, 0.8), rgba(16, 35, 63, 0.85)), url('{{ asset('storage/images/hero.jpg') }}'); background-size: cover; background-position: center;">
+        <!-- Hero Section Dinamis -->
+        @php
+            $heroBanner = !empty($contents['hero_banner']) ? asset('storage/' . $contents['hero_banner']) : asset('storage/images/hero.jpg');
+            
+            // Kebalikan kompatibilitas: jika admin masih punya data lama 'hero_title' vs 'hero_title_main'
+            $heroMain = $contents['hero_title_main'] ?? null;
+            $heroHighlight = $contents['hero_title_highlight'] ?? null;
+        @endphp
+
+        <section class="home-hero" style="background: linear-gradient(rgba(13, 40, 85, 0.8), rgba(16, 35, 63, 0.85)), url('{{ $heroBanner }}'); background-size: cover; background-position: center;">
             <div class="home-hero-container">
                 <div class="hero-copy">
-                    <span class="hero-eyebrow"><span class="eyebrow-dot"></span> Koneksi untuk berkembang</span>
-                    <h1 class="home-hero-title">Koneksi yang kuat.<br><span>Bisnis melaju.</span></h1>
-                    <p class="home-hero-desc">Infrastruktur internet dan teknologi yang dirancang untuk membantu bisnis tetap terhubung, produktif, dan siap menghadapi masa depan digital.</p>
+                    <span class="hero-eyebrow"><span class="eyebrow-dot"></span> {{ $contents['hero_eyebrow'] ?? 'Koneksi untuk berkembang' }}</span>
+                    
+                    <h1 class="home-hero-title">
+                        @if($heroMain || $heroHighlight)
+                            {{ $heroMain ?? 'Koneksi yang kuat.' }}<br>
+                            <span>{{ $heroHighlight ?? 'Bisnis melaju.' }}</span>
+                        @else
+                            {!! $contents['hero_title'] ?? 'Koneksi yang kuat.<br><span>Bisnis melaju.</span>' !!}
+                        @endif
+                    </h1>
+
+                    <p class="home-hero-desc">{{ $contents['hero_desc'] ?? 'Infrastruktur internet dan teknologi yang dirancang untuk membantu bisnis tetap terhubung, produktif, dan siap menghadapi masa depan digital.' }}</p>
                     <div class="hero-btn-wrapper">
                         <a href="{{ url('/produk') }}" class="btn-primary">Jelajahi Layanan <span aria-hidden="true">→</span></a>
                         <a href="#about" class="btn-secondary">Kenali Perusahaan</a>
@@ -29,19 +46,48 @@
             <div class="hero-bottom-line" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
         </section>
 
-        <!-- Tentang Kami -->
+        <!-- Tentang Kami Dinamis -->
+        @php
+            $aboutMain = $contents['about_title_main'] ?? null;
+            $aboutHighlight = $contents['about_title_highlight'] ?? null;
+        @endphp
         <section class="about-section" id="about">
             <div class="section-container about-container">
                 <div class="about-intro">
                     <span class="section-eyebrow">TENTANG KAMI</span>
-                    <h2 class="section-title">Teknologi yang bekerja untuk <span>kemajuan Anda.</span></h2>
+                    <h2 class="section-title">
+                        @if($aboutMain || $aboutHighlight)
+                            {{ $aboutMain ?? 'Teknologi yang bekerja untuk' }} 
+                            <span>{{ $aboutHighlight ?? 'kemajuan Anda.' }}</span>
+                        @else
+                            {!! $contents['about_title'] ?? 'Teknologi yang bekerja untuk <span>kemajuan Anda.</span>' !!}
+                        @endif
+                    </h2>
                 </div>
                 <div class="about-detail">
-                    <p class="section-desc">PT Solusi Koneksi Anda berfokus pada solusi konektivitas dan infrastruktur digital untuk mendukung kebutuhan bisnis yang terus berkembang. Kami menghubungkan jaringan, perangkat, dan sistem agar dapat bekerja secara lebih terpadu.</p>
+                    <p class="section-desc">{{ $contents['about_desc'] ?? 'PT Solusi Koneksi Anda berfokus pada solusi konektivitas dan infrastruktur digital untuk mendukung kebutuhan bisnis yang terus berkembang. Kami menghubungkan jaringan, perangkat, dan sistem agar dapat bekerja secara lebih terpadu.' }}</p>
                     <ul class="feature-list">
-                        <li class="feature-item"><span class="feature-check">✓</span><span><strong>Infrastruktur andal</strong><small>Dirancang sesuai kebutuhan operasional.</small></span></li>
-                        <li class="feature-item"><span class="feature-check">✓</span><span><strong>Solusi fleksibel</strong><small>Dapat disesuaikan dengan skala bisnis.</small></span></li>
-                        <li class="feature-item"><span class="feature-check">✓</span><span><strong>Dukungan teknis</strong><small>Mendukung kelancaran penggunaan layanan.</small></span></li>
+                        <li class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>
+                                <strong>{{ $contents['feature_1_title'] ?? 'Infrastruktur andal' }}</strong>
+                                <small>{{ $contents['feature_1_desc'] ?? 'Dirancang sesuai kebutuhan operasional.' }}</small>
+                            </span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>
+                                <strong>{{ $contents['feature_2_title'] ?? 'Solusi fleksibel' }}</strong>
+                                <small>{{ $contents['feature_2_desc'] ?? 'Dapat disesuaikan dengan skala bisnis.' }}</small>
+                            </span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>
+                                <strong>{{ $contents['feature_3_title'] ?? 'Dukungan teknis' }}</strong>
+                                <small>{{ $contents['feature_3_desc'] ?? 'Mendukung kelancaran penggunaan layanan.' }}</small>
+                            </span>
+                        </li>
                     </ul>
                 </div>
             </div>

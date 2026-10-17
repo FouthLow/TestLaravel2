@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('nama');
             $table->text('deskripsi')->nullable();
-            $table->decimal('harga');
+            $table->decimal('harga', 15, 2);
             $table->timestamps();
         });
     }

@@ -39,7 +39,7 @@
                             <div class="contact-detail-item">
                                 <div class="contact-icon-wrap">🏢</div>
                                 <div>
-                                    <strong>PT Edukasi4id / PT Solusi Koneksi Anda</strong>
+                                    <strong>PT Solusi Koneksi Anda</strong>
                                     <p>Jl. Raya Pajajaran No. 88 F<br>Kota Bogor 16153, Jawa Barat</p>
                                 </div>
                             </div>
@@ -47,7 +47,7 @@
                                 <div class="contact-icon-wrap">📞</div>
                                 <div>
                                     <strong>Telepon / WhatsApp</strong>
-                                    <p>+62 8xx-xxxx-xxxx</p>
+                                    <p>+62 822-9090-8372</p>
                                 </div>
                             </div>
                             <div class="contact-detail-item">

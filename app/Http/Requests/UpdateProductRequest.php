@@ -26,7 +26,7 @@ class UpdateProductRequest extends FormRequest
             'image' => ['nullable', 'image', 'mimes:png,jpg', 'max:10000'],
             'nama' => ['required', 'string', 'max:255'],
             'deskripsi' => ['nullable', 'string', 'max:255'],
-            'harga' => ['required', 'integer', 'min:0','max:999999999'],
+            'harga' => ['required', 'numeric', 'min:0',],
         ];
     }
 }

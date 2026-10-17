@@ -10,35 +10,45 @@
 <body>
     <x-app-layout>
         <x-slot name="header">
-            <h2>Detail Artikel</h2>
+            <div class="artikel-detail-header">
+                <h2>Detail Artikel</h2>
+                <a href="{{ route('artikels.index') }}" class="btn-back">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                    <span>Kembali ke Daftar Artikel</span>
+                </a>
+            </div>
         </x-slot>
 
-        <div class="admin-card product-form-container">
+        <div class="admin-card product-form-container artikel-detail-card">
             @if ($artikel->image)
-                <div style="margin-bottom: 24px; text-align: center;">
+                <div class="artikel-image-wrapper">
                     <img src="{{ asset('storage/' . $artikel->image) }}" alt="{{ $artikel->judul }}" class="product-detail-img">
                 </div>
             @else
-                <div style="margin-bottom: 24px;" class="product-detail-placeholder">
-                    Tidak Ada Gambar
+                <div class="product-detail-placeholder">
+                    <span class="material-symbols-outlined">image</span>
+                    <p>Tidak Ada Gambar</p>
                 </div>
             @endif
 
-            <div style="display: grid; gap: 16px;">
-                <div>
-                    <span style="font-size: 10px; font-weight: 800; text-transform: uppercase; color: #8c9bb0; letter-spacing: 0.1em;">Judul Artikel</span>
-                    <p style="margin: 4px 0 0; font-size: 16px; font-weight: 800; color: #10233f;">{{ $artikel->judul }}</p>
+            <div class="artikel-detail-content">
+                <div class="detail-field-group">
+                    <span class="field-label">Judul Artikel</span>
+                    <h1 class="artikel-title-text">{{ $artikel->judul }}</h1>
                 </div>
 
-                <div>
-                    <span style="font-size: 10px; font-weight: 800; text-transform: uppercase; color: #8c9bb0; letter-spacing: 0.1em;">Deskripsi / Isi</span>
-                    <p style="margin: 4px 0 0; font-size: 13px; color: #687991; line-height: 1.7; white-space: pre-line;">{{ $artikel->deskripsi ?? 'Tidak ada deskripsi.' }}</p>
+                <div class="detail-field-group">
+                    <span class="field-label">Deskripsi / Isi Artikel</span>
+                    <div class="artikel-body-text">
+                        {{ $artikel->deskripsi ?? 'Tidak ada deskripsi.' }}
+                    </div>
                 </div>
             </div>
 
-            <div style="margin-top: 28px; padding-top: 20px; border-top: 1px solid #edf2f8;">
-                <a href="{{ route('artikels.index') }}" class="btn-secondary" style="display: inline-flex; align-items: center;">
-                    ← Kembali ke Daftar Artikel
+            <div class="artikel-detail-footer">
+                <a href="{{ route('artikels.index') }}" class="btn-back">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                    <span>Kembali ke Daftar Artikel</span>
                 </a>
             </div>
         </div>

@@ -1,0 +1,226 @@
+/* ==========================================
+   Layout & Container Split Editor Preview
+   ========================================== */
+.editor-wrapper {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    padding: 24px;
+    background-color: #f8fbff;
+    min-height: calc(100vh - 70px);
+}
+
+/* Sidebar Panel Form Pengaturan */
+.editor-sidebar {
+    width: 380px;
+    flex-shrink: 0;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 25px -5px rgba(13, 40, 85, 0.05), 0 8px 10px -6px rgba(13, 40, 85, 0.02);
+    position: sticky;
+    top: 90px;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+}
+
+.editor-sidebar-header {
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #edf2f8;
+}
+
+.editor-sidebar-header h2 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #10233f;
+    letter-spacing: -0.01em;
+}
+
+.editor-sidebar-header p {
+    font-size: 13px;
+    color: #687991;
+    margin-top: 4px;
+    line-height: 1.5;
+}
+
+/* Area Canvas Live Preview */
+.editor-preview-canvas {
+    flex-grow: 1;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px -5px rgba(13, 40, 85, 0.06);
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+.preview-bar {
+    background: #0d2855;
+    color: #ffffff;
+    padding: 12px 20px;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.preview-badge {
+    background: #22c55e;
+    color: #ffffff;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.preview-content {
+    pointer-events: none; /* Mencegah interaksi tombol di dalam canvas preview */
+    user-select: none;
+}
+
+/* ==========================================
+   Form Styling Internal Editor
+   ========================================== */
+.editor-form-group {
+    margin-bottom: 18px;
+}
+
+.editor-form-group label {
+    display: block;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #8c9bb0;
+    margin-bottom: 6px;
+    letter-spacing: 0.06em;
+}
+
+.editor-form-group input[type="text"],
+.editor-form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: #10233f;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: #f8fbff;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.editor-form-group input[type="text"]:focus,
+.editor-form-group textarea:focus {
+    border-color: #0d2855;
+    background-color: #ffffff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(13, 40, 85, 0.1);
+}
+
+/* ==========================================
+   Komponen Preview Publik (Di-scale untuk Admin)
+   ========================================== */
+.editor-preview-canvas .home-hero {
+    position: relative;
+    padding: 60px 32px;
+    color: #ffffff;
+    min-height: auto;
+}
+
+.editor-preview-canvas .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #93c5fd;
+    margin-bottom: 12px;
+}
+
+.editor-preview-canvas .eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #60a5fa;
+    border-radius: 50%;
+}
+
+.editor-preview-canvas .home-hero-title {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+/* Pengaturan Spesifik Warna Judul Hero & About */
+.editor-preview-canvas .home-hero-title #preview_hero_title_main {
+    color: #ffffff !important;
+}
+
+.editor-preview-canvas .home-hero-title #preview_hero_title_highlight {
+    color: #60a5fa !important;
+}
+
+.editor-preview-canvas .home-hero-desc {
+    font-size: 14px;
+    color: #cbd5e1;
+    line-height: 1.6;
+    max-width: 560px;
+    margin-bottom: 20px;
+}
+
+.editor-preview-canvas .about-section {
+    padding: 48px 32px;
+    background-color: #ffffff;
+}
+
+.editor-preview-canvas .section-eyebrow {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #0d2855;
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.editor-preview-canvas .section-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #10233f;
+    line-height: 1.3;
+}
+
+.editor-preview-canvas .section-title #preview_about_title_main {
+    color: #10233f !important;
+}
+
+.editor-preview-canvas .section-title #preview_about_title_highlight {
+    color: #2563eb !important;
+}
+
+.editor-preview-canvas .section-desc {
+    font-size: 13px;
+    color: #687991;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   Responsive Handling
+   ========================================== */
+@media (max-width: 1024px) {
+    .editor-wrapper {
+        flex-direction: column;
+    }
+    
+    .editor-sidebar {
+        width: 100%;
+        position: static;
+        max-height: none;
+    }
+}

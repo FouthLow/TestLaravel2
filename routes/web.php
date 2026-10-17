@@ -5,7 +5,8 @@ use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ContactController;    
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeContentController;    
 use Illuminate\Support\Facades\Route;
 
 /*Route*/
@@ -34,6 +35,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('products', ProductController::class);
     Route::resource('artikels', ArtikelController::class);
     Route::resource('galeris', GaleriController::class);
-    Route::resource('admin/contacts', ContactController::class)->except(['create', 'store', 'edit', 'update']);});
+    Route::resource('contacts', ContactController::class)->except(['create', 'store', 'edit', 'update']);});
+    Route::get('home-content', [HomeContentController::class, 'index'])->name('home-contents.index');
+    Route::put('home-content', [HomeContentController::class, 'update'])->name('home-contents.update');
 
 require __DIR__.'/auth.php';

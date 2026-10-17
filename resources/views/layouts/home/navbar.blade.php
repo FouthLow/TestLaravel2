@@ -2,13 +2,13 @@
    
 <header class="site-header">
     <div class="header-container">
-        <a href="{{ url('/') }}" class="brand-logo" aria-label="PT Solusi Koneksi Anda - Beranda">
-            <span class="brand-icon" aria-hidden="true"><span>S</span></span>
-            <span class="brand-copy">
-                 <span class="brand-title">Solusi Koneksi Anda</span>
-                <span class="brand-subtitle">Internet · Network · Technology</span>
-             </span>
-         </a>
+    <a href="{{ url('/') }}" class="brand-logo" aria-label="PT Solusi Koneksi Anda - Beranda">
+        <img src="{{ asset('storage/images/Logo.svg') }}" alt="Logo Solusi Koneksi Anda" class="brand-svg-logo">
+        <span class="brand-copy">
+            <span class="brand-title">Solusi Koneksi Anda</span>
+            <span class="brand-subtitle">Internet · Network · Technology</span>
+        </span>
+    </a>
 
         <nav class="nav-menu" aria-label="Navigasi utama">
              <a href="{{ url('/') }}" class="nav-link">Beranda</a>
